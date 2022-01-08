@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import useInterval from '@use-it/interval'
-import { animate, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import './App.css';
 
 const messages = [
@@ -49,7 +49,7 @@ export default function App() {
 
 function Typing({even}) {
   return (
-    <div className={`typing ${even ? 'is-left' : 'is-right' }`}>
+    <div className={`typing ${even ? 'is-left' : 'is-right' }`} initial={{rotate:10,scale:0}} animate={{rotate: 0, scale: 1}}>
       <div className="dots">
         <div />
         <div />
@@ -62,7 +62,7 @@ function Typing({even}) {
 function Message({message}) {
 
   return(
-    <motion.div className="message" initial={{scale: 0.2}} animate={{scale:1}}>
+    <motion.div className="message" initial={{rotate: -5, scale: 0}} animate={{rotate: 0, scale:1}} >
               <div className='avatar'>🌸 </div>
               <div className='text'>{message.text}</div>
               <div className='avatar'>😊 </div>
